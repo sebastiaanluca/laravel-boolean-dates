@@ -1,4 +1,4 @@
-# Laravel Boolean Dates
+# Easily convert Eloquent model booleans to dates and back
 
 [![Latest stable release][version-badge]][link-packagist]
 [![Software license][license-badge]](LICENSE.md)
@@ -10,9 +10,7 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__Easily convert Eloquent model booleans to dates and back with Laravel Boolean Dates.__
-
-Sets the date of fields to the current date and time if an inputted counterpart boolean field is true-ish. Ideal for those terms and conditions checkboxes on user registration pages! Now you know _when_ they were accepted and not just _if_ (GDPR anyone?).
+__Sets the date of fields to the current date and time if an inputted counterpart boolean field is true-ish.__ Ideal for those terms and conditions checkboxes on user registration pages! Now you know _when_ they were accepted and not just _if_ (GDPR anyone?).
 
 ## Table of contents
 
