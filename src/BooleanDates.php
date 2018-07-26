@@ -46,7 +46,7 @@ trait BooleanDates
         }
 
         if ($this->hasBooleanDate($key)) {
-            return ! is_null($this->attributes[$this->getBooleanDateField($key)]);
+            return $this->attributes[$this->getBooleanDateField($key)] !== null;
         }
 
         return parent::getAttribute($key);
@@ -60,7 +60,7 @@ trait BooleanDates
      *
      * @return $this
      */
-    public function setAttribute($key, $value)
+    public function setAttribute($key, $value) : self
     {
         if ($this->hasBooleanDate($key)) {
             $this->setBooleanDate($key, $value);
@@ -124,7 +124,7 @@ trait BooleanDates
             return true;
         }
 
-        return is_null($this->attributes[$this->getBooleanDateField($key)]);
+        return $this->attributes[$this->getBooleanDateField($key)] === null;
     }
 
     /**
@@ -159,7 +159,7 @@ trait BooleanDates
                 continue;
             }
 
-            $attributes[$booleanField] = ! is_null($date);
+            $attributes[$booleanField] = $date !== null;
         }
 
         return $attributes;

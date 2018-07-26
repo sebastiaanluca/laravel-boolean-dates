@@ -3,6 +3,7 @@
 namespace SebastiaanLuca\BooleanDates\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use SebastiaanLuca\BooleanDates\BooleanDatesServiceProvider;
 
 class TestCase extends BaseTestCase
 {
@@ -11,10 +12,10 @@ class TestCase extends BaseTestCase
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app) : array
     {
         return [
-            //
+            BooleanDatesServiceProvider::class,
         ];
     }
 }

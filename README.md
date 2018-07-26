@@ -19,6 +19,12 @@ Sets the date of fields to the current date and time if an inputted counterpart 
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
 - [How to use](#how-to-use)
+    - [Saving dates](#saving-dates)
+    - [Clearing saved values](#clearing-saved-values)
+    - [Retrieving values](#retrieving-values)
+        - [Retrieving fields as booleans](#retrieving-fields-as-booleans)
+        - [Retrieving fields as datetimes](#retrieving-fields-as-datetimes)
+    - [Array conversion](#array-conversion)
 - [License](#license)
 - [Change log](#change-log)
 - [Testing](#testing)
@@ -95,7 +101,7 @@ $user->fill([
 $user->save();
 ```
 
-When you now check your database, all fields should contain a datetime similar to `2018-05-10 16:24:22`.
+All fields should now contain a datetime similar to `2018-05-10 16:24:22`.
 
 ### Clearing saved values
 
@@ -109,7 +115,7 @@ $user->allows_data_processing = false;
 $user->save();
 ```
 
-False values will be converted to `NULL` in your database.
+False values are converted to `NULL`.
 
 ### Retrieving values
 
@@ -118,8 +124,6 @@ False values will be converted to `NULL` in your database.
 Use a boolean field's defined _key_ to access its boolean value:
 
 ```php
-<?php
-
 $user = User::findOrFail(42);
 
 $user->has_accepted_terms_and_conditions;
@@ -146,8 +150,6 @@ $user->has_agreed_to_something;
 Use a boolean field's defined _value_ to explicitly access its (Carbon) datetime value:
 
 ```php
-<?php
-
 $user = User::findOrFail(42);
 
 $user->accepted_terms_at;
