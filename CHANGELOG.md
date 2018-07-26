@@ -6,6 +6,16 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  0.2.0 (2018-07-26)
+
+### Changed
+
+- Allow using mutators and other features for boolean dates
+
+### Fixed
+
+- Allow multiple traits with the same methods (e.g. `getAttribute`)
+
 ##  0.1.1 (2018-07-26)
 
 ### Fixed
