@@ -124,8 +124,6 @@ False values are converted to `NULL`.
 Use a boolean field's defined _key_ to access its boolean value:
 
 ```php
-<?php
-
 $user = User::findOrFail(42);
 
 $user->has_accepted_terms_and_conditions;
@@ -152,8 +150,6 @@ $user->has_agreed_to_something;
 Use a boolean field's defined _value_ to explicitly access its (Carbon) datetime value:
 
 ```php
-<?php
-
 $user = User::findOrFail(42);
 
 $user->accepted_terms_at;
