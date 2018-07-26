@@ -95,7 +95,7 @@ $user->fill([
 $user->save();
 ```
 
-When you now check your database, all fields should contain a datetime similar to `2018-05-10 16:24:22`.
+All fields should now contain a datetime similar to `2018-05-10 16:24:22`.
 
 ### Clearing saved values
 
