@@ -50,7 +50,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SebastiaanLuca\\BooleanDates\\Providers\\BooleanDatesServiceProvider"
+                "SebastiaanLuca\\BooleanDates\\BooleanDatesServiceProvider"
             ]
         }
     },
