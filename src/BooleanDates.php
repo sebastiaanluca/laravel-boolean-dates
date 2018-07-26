@@ -46,7 +46,7 @@ trait BooleanDates
         }
 
         if ($this->hasBooleanDate($key)) {
-            return $this->attributes[$this->getBooleanDateField($key)] !== null;
+            return $this->getBooleanDate($key);
         }
 
         return parent::getAttribute($key);
@@ -82,7 +82,7 @@ trait BooleanDates
     /**
      * @return array
      */
-    public function getBooleanDateAttributes() : array
+    protected function getBooleanDateAttributes() : array
     {
         return array_intersect_key(
             $this->attributes,
@@ -91,20 +91,20 @@ trait BooleanDates
     }
 
     /**
-     * @param string $key
+     * @param mixed $key
      *
      * @return bool
      */
-    public function hasBooleanDate(string $key) : bool
+    protected function getBooleanDate($key) : bool
     {
-        return array_key_exists($key, $this->getBooleanDates());
+        return $this->attributes[$this->getBooleanDateField($key)] !== null;
     }
 
     /**
      * @param string $key
      * @param mixed $value
      */
-    public function setBooleanDate(string $key, $value) : void
+    protected function setBooleanDate(string $key, $value) : void
     {
         // Only update the timestamp if the value is true and if it's not yet set
         // or if the value is false and we need to unset the field.
@@ -118,7 +118,17 @@ trait BooleanDates
      *
      * @return bool
      */
-    public function currentBooleanDateFieldValueIsNotYetSet(string $key) : bool
+    protected function hasBooleanDate(string $key) : bool
+    {
+        return array_key_exists($key, $this->getBooleanDates());
+    }
+
+    /**
+     * @param mixed $key
+     *
+     * @return bool
+     */
+    protected function currentBooleanDateFieldValueIsNotYetSet($key) : bool
     {
         if (! array_key_exists($this->getBooleanDateField($key), $this->attributes)) {
             return true;
@@ -128,11 +138,11 @@ trait BooleanDates
     }
 
     /**
-     * @param string $key
+     * @param mixed $key
      *
      * @return string
      */
-    public function getBooleanDateField(string $key) : string
+    protected function getBooleanDateField($key) : string
     {
         return $this->booleanDates[$key];
     }
@@ -142,7 +152,7 @@ trait BooleanDates
      *
      * @return string|null
      */
-    public function getNewBooleanDateValue($value) : ?string
+    protected function getNewBooleanDateValue($value) : ?string
     {
         return $value ? $this->fromDateTime(Carbon::now()) : null;
     }
