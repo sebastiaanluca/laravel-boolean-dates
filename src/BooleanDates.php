@@ -85,7 +85,7 @@ trait BooleanDates
     protected function getBooleanDateAttributes() : array
     {
         return array_intersect_key(
-            $this->attributes,
+            $this->getAttributes(),
             array_flip($this->getBooleanDates())
         );
     }
@@ -97,7 +97,7 @@ trait BooleanDates
      */
     protected function getBooleanDate($key) : bool
     {
-        return $this->attributes[$this->getBooleanDateField($key)] !== null;
+        return parent::getAttribute($this->getBooleanDateField($key)) !== null;
     }
 
     /**
@@ -109,6 +109,10 @@ trait BooleanDates
         // Only update the timestamp if the value is true and if it's not yet set
         // or if the value is false and we need to unset the field.
         if (! $value || ($value && $this->currentBooleanDateFieldValueIsNotYetSet($key))) {
+            // Set the value directly on the attributes array, don't use
+            // setAttribute, and don't receive $200. (\) (°,,,°) (/)
+            // This allows us to format and set the datetime ourselves,
+            // and makes using the $dates field optional.
             $this->attributes[$this->getBooleanDateField($key)] = $this->getNewBooleanDateValue($value);
         }
     }
@@ -130,11 +134,11 @@ trait BooleanDates
      */
     protected function currentBooleanDateFieldValueIsNotYetSet($key) : bool
     {
-        if (! array_key_exists($this->getBooleanDateField($key), $this->attributes)) {
+        if (! array_key_exists($this->getBooleanDateField($key), $this->getAttributes())) {
             return true;
         }
 
-        return $this->attributes[$this->getBooleanDateField($key)] === null;
+        return parent::getAttribute($this->getBooleanDateField($key)) === null;
     }
 
     /**
