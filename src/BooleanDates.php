@@ -60,7 +60,7 @@ trait BooleanDates
      *
      * @return $this
      */
-    public function setAttribute($key, $value) : self
+    public function setAttribute($key, $value)
     {
         if ($this->hasBooleanDate($key)) {
             $this->setBooleanDate($key, $value);

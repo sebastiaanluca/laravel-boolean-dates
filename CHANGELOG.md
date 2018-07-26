@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  0.2.1 (2018-07-26)
+
+### Fixed
+
+- Remove `self` return type hint (conflicted when returning `null` during an Artisan command)
+
 ##  0.2.0 (2018-07-26)
 
 ### Changed
