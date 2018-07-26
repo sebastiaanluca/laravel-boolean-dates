@@ -109,7 +109,7 @@ $user->allows_data_processing = false;
 $user->save();
 ```
 
-False values will be converted to `NULL` in your database.
+False values are converted to `NULL`.
 
 ### Retrieving values
 
