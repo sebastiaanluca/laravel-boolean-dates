@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Fixed
+
+- Allow multiple traits with the same methods (e.g. `getAttribute`)
+
 ##  0.1.1 (2018-07-26)
 
 ### Fixed
