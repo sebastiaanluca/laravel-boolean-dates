@@ -1,0 +1,60 @@
+{
+    "name": "sebastiaanluca/laravel-boolean-dates",
+    "type": "library",
+    "description": "Easily convert Eloquent model booleans to dates and back with Laravel Boolean Dates.",
+    "keywords": [
+        "bool",
+        "boolean",
+        "convert",
+        "dates",
+        "datetimes",
+        "eloquent",
+        "laravel",
+        "model",
+        "timestamps"
+    ],
+    "homepage": "https://github.com/sebastiaanluca/laravel-boolean-dates",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastiaan Luca",
+            "email": "hello@sebastiaanluca.com",
+            "homepage": "https://www.sebastiaanluca.com",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "laravel/framework": "^5.6",
+        "nesbot/carbon": "^1.22",
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "kint-php/kint": "^2.2",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SebastiaanLuca\\BooleanDates\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SebastiaanLuca\\BooleanDates\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\BooleanDates\\Providers\\BooleanDatesServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
