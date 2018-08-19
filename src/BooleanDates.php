@@ -9,16 +9,6 @@ use Carbon\Carbon;
 trait BooleanDates
 {
     /**
-     * Set the date of fields to the current date and time if a counterpart boolean field is
-     * true-ish.
-     *
-     * Keys and values should be in the format: `'boolean_field' => 'internal_timestamp_field'`.
-     *
-     * @var array
-     */
-    protected $booleanDates = [];
-
-    /**
      * Convert the model's attributes to an array.
      *
      * @return array
