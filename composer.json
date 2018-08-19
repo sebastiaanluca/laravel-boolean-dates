@@ -24,13 +24,13 @@
         }
     ],
     "require": {
-        "ext-json": "*",
         "laravel/framework": "^5.6",
         "nesbot/carbon": "^1.22",
         "php": "^7.2"
     },
     "require-dev": {
         "kint-php/kint": "^2.2",
+        "mockery/mockery": "^1.1",
         "orchestra/testbench": "^3.6",
         "phpunit/phpunit": "^7.2"
     },
