@@ -1,4 +1,4 @@
-# Easily convert Eloquent model booleans to dates and back
+# Easily convert Eloquent model boolean fields to dates and back
 
 [![Latest stable release][version-badge]][link-packagist]
 [![Software license][license-badge]](LICENSE.md)
@@ -76,7 +76,7 @@ class User extends Model
 }
 ```
 
-Adding the boolean dates _values_ to the `$dates` array is optional, but encouraged as it'll convert all your boolean datetimes to Carbon instances. 
+Adding the boolean dates _values_ to the `$dates` array is **optional**, but encouraged as it'll convert all your boolean datetimes to Carbon instances. 
 
 ## How to use
 
@@ -108,12 +108,18 @@ Of course you can also remove the saved date and time, for instance if a user re
 ```php
 $user = User::findOrFail(42);
 
-$user->allows_data_processing = false;
+$user->has_accepted_terms_and_conditions = false;
+// $user->has_accepted_terms_and_conditions = null;
+
+$user->allows_data_processing = 0;
+// $user->allows_data_processing = '0';
+
+$user->has_agreed_to_something = '';
 
 $user->save();
 ```
 
-False values are converted to `NULL`.
+False or false-y values are converted to `NULL`.
 
 ### Retrieving values
 
@@ -127,19 +133,7 @@ $user = User::findOrFail(42);
 $user->has_accepted_terms_and_conditions;
 
 /*
- * true (boolean)
- */
-
-$user->allows_data_processing;
-
-/*
- * false (boolean)
- */
-
-$user->has_agreed_to_something;
-
-/*
- * true (boolean)
+ * true or false (boolean)
  */
 ```
 
@@ -161,12 +155,6 @@ $user->accepted_processing_at;
 /*
  * NULL
  */
-
-$user->agreed_to_something_at;
-
-/*
- * 2018-05-10 16:24:22 (string or Carbon instance)
- */
 ```
 
 ### Array conversion
@@ -179,10 +167,10 @@ $user = User::findOrFail(42);
 $user->toArray();
 
 /*
- * Which will return:
+ * Which will return something like:
  * 
  * [
- *     'accepted_terms_at' => \Carbon\Carbon('2018-05-10 16:24:22'),
+ *     'accepted_terms_at' => '2018-05-10 16:24:22',
  *     'accepted_processing_at' => NULL,
  *     'agreed_to_something_at' => \Carbon\Carbon('2018-05-10 16:24:22'),
  *     'accepted_terms_and_conditions' => true,
