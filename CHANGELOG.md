@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  1.0.0 (2018-08-19)
+
 ### Fixed
 
 - Removed `$booleanDates` trait variable to resolve conflict with the model it's used in
