@@ -163,7 +163,7 @@ trait BooleanDates
                 continue;
             }
 
-            $attributes[$booleanField] = $date !== null;
+            $attributes[$booleanField] = $this->getBooleanDate($booleanField);
         }
 
         return $attributes;
