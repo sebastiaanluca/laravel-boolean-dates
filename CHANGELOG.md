@@ -9,6 +9,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Fixed
 
 - Removed `$booleanDates` trait variable to resolve conflict with the model it's used in
+- Always return a valid array when retrieving all boolean dates
 
 ##  0.2.1 (2018-07-26)
 

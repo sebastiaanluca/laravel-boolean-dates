@@ -66,7 +66,7 @@ trait BooleanDates
      */
     public function getBooleanDates() : array
     {
-        return $this->booleanDates;
+        return $this->booleanDates ?? [];
     }
 
     /**
