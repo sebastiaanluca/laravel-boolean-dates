@@ -55,6 +55,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit",
+        "test-lowest": "composer update --prefer-lowest --prefer-dist --no-interaction && vendor/bin/phpunit",
+        "test-stable": "composer update --prefer-stable --prefer-dist --no-interaction &&vendor/bin/phpunit"
     }
 }
