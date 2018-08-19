@@ -24,7 +24,6 @@
         }
     ],
     "require": {
-        "ext-json": "*",
         "laravel/framework": "^5.6",
         "nesbot/carbon": "^1.22",
         "php": "^7.2"
