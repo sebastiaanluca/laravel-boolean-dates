@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  1.0.1 (2018-08-20)
+
+### Fixed
+
+- Require nesbot/carbon v1.22.1 to fix "Cannot access property xxxx::$lastErrors" (see https://github.com/briannesbitt/Carbon/issues/852)
+
 ##  1.0.0 (2018-08-19)
 
 ### Fixed
