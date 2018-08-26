@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  1.0.4 (2018-08-26)
+
+### Changed
+
+- Updated readme (yes, again 🤓)
+
 ##  1.0.3 (2018-08-26)
 
 ### Changed
