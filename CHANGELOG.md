@@ -6,6 +6,16 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  1.0.2 (2018-08-26)
+
+### Added
+
+- Added example to readme intro
+
+### Changed
+
+- Changed Composer description
+
 ##  1.0.1 (2018-08-20)
 
 ### Fixed

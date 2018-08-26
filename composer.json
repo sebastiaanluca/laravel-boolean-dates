@@ -1,7 +1,7 @@
 {
     "name": "sebastiaanluca/laravel-boolean-dates",
     "type": "library",
-    "description": "Easily convert Eloquent model booleans to dates and back with Laravel Boolean Dates.",
+    "description": "Automatically convert Eloquent model boolean attributes to dates (and back).",
     "keywords": [
         "bool",
         "boolean",
