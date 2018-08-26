@@ -1,4 +1,4 @@
-# Easily convert Eloquent model boolean fields to dates and back
+# Automatically convert Eloquent model boolean attributes to dates (and back)
 
 [![Latest stable release][version-badge]][link-packagist]
 [![Software license][license-badge]](LICENSE.md)
