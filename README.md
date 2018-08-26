@@ -10,13 +10,11 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__Sets the date of an attribute to the current date and time if an inputted counterpart boolean attribute is true-ish.__
-
-### Example
-
 Say you've got a registration page for users where they need to accept your terms and perhaps can opt-in to certain features using checkboxes. With the new(-ish) GDPR privacy laws, you're somewhat required to not just keep track of the fact *if* they accepted those (or not), but also *when* they did.
 
-**This package automatically converts those boolean fields to dates so you always know when something was accepted.**
+**This package automatically converts those boolean fields to dates so you always know when something was accepted or changed.**
+
+### Example
 
 User registration controller:
 
