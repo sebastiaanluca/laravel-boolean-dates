@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+##  1.0.2 (2018-08-26)
+
 ### Added
 
 - Added example to readme intro
