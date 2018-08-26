@@ -19,7 +19,7 @@ Say you've got a registration page for users where they need to accept your term
 User registration controller:
 
 ```php
-$input = $request->input();
+$input = request()->input();
 
 $user = User::create([
     'has_accepted_terms_and_conditions' => $input['terms'],
