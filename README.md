@@ -10,7 +10,41 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__Sets the date of fields to the current date and time if an inputted counterpart boolean field is true-ish.__ Ideal for those terms and conditions checkboxes on user registration pages! Now you know _when_ they were accepted and not just _if_ (GDPR anyone?).
+__Sets the date of an attribute to the current date and time if an inputted counterpart boolean attribute is true-ish.__
+
+### Example
+
+Say you've got a registration page for users where they need to accept your terms and perhaps can opt-in to certain features using checkboxes. With the new(-ish) GDPR privacy laws, you're somewhat required to not just keep track of the fact *if* they accepted those (or not), but also *when* they did.
+
+**This package automatically converts those boolean fields to dates so you always know when something was accepted.**
+
+User registration controller:
+
+```php
+$input = $request->input();
+
+$user = User::create([
+    'has_accepted_terms_and_conditions' => $input['terms'],
+    'allows_data_processing' => $input['data_processing'],
+    'has_agreed_to_something' => $input['something'],
+]);
+```
+
+Anywhere else in your code:
+
+```php
+$user->has_accepted_terms_and_conditions;
+
+/*
+ * true or false (boolean)
+ */
+ 
+$user->accepted_terms_and_conditions_at;
+
+/*
+ * 2018-05-10 16:24:22 (string or Carbon instance)
+ */
+```
 
 ## Table of contents
 
