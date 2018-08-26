@@ -72,15 +72,17 @@ $user->accepted_terms_and_conditions_at;
 
 ## How to install
 
-Add the package to your project using composer:
+**Add the package** to your project using composer:
 
 ```bash
 composer require sebastiaanluca/laravel-boolean-dates
 ```
 
-Require the `BooleanDates` trait in your Eloquent model, then add the `$booleanDates` and `$dates` (optional) fields:
+**Require the `BooleanDates` trait** in your Eloquent model, then add the `$booleanDates` and `$dates` (optional) fields:
 
 ```php
+<?php
+
 use Illuminate\Database\Eloquent\Model;
 use SebastiaanLuca\BooleanDates\BooleanDates;
 
@@ -110,7 +112,36 @@ class User extends Model
 }
 ```
 
-Adding the boolean dates _values_ to the `$dates` array is **optional**, but encouraged as it'll convert all your boolean datetimes to Carbon instances. 
+Adding the boolean date fields to the `$dates` array is **optional**, but encouraged as it'll convert all your boolean datetimes to Carbon instances.
+
+To wrap up, create a **migration** to create a new or alter your existing table and add the timestamp fields:
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddAgreementFields extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() : void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('accepted_terms_at')->nullable();
+            $table->timestamp('accepted_processing_at')->nullable();
+            $table->timestamp('agreed_to_something_at')->nullable();
+        });
+    }
+}
+```
+
+Note: the related boolean fields are dynamic and do not need database fields.
 
 ## How to use
 
