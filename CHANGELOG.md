@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 1.1.1 (2018-09-04)
+
+### Fixed
+
+- Allow using `nesbot/carbon` ^2.0 and up
+
 ## 1.1.0 (2018-09-04)
 
 ### Added
