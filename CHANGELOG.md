@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 2.0.0 (2019-02-27)
+
 ### Added
 
 - Automatically detect a model's boolean date fields
