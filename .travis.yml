@@ -18,7 +18,7 @@ env:
 
 matrix:
   allow_failures:
-    - php: nightly
+    - php: 7.4snapshot
     - env: LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest" MINIMUM_STABILITY="dev"
     - env: LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-stable" MINIMUM_STABILITY="dev"
   fast_finish: true
