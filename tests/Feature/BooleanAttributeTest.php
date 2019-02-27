@@ -48,8 +48,8 @@ class BooleanAttributeTest extends TestCase
         $model->has_accepted_terms_and_conditions = true;
 
         $this->assertSame(
-            Carbon::now()->format('Y-m-d H:i:s'),
-            $model->accepted_terms_at
+            Carbon::now()->format('Y-m-d H:i'),
+            $model->accepted_terms_at->format('Y-m-d H:i')
         );
     }
 
@@ -63,8 +63,8 @@ class BooleanAttributeTest extends TestCase
         $model->has_accepted_terms_and_conditions = 'yes';
 
         $this->assertSame(
-            Carbon::now()->format('Y-m-d H:i:s'),
-            $model->accepted_terms_at
+            Carbon::now()->format('Y-m-d H:i'),
+            $model->accepted_terms_at->format('Y-m-d H:i')
         );
     }
 
@@ -78,8 +78,8 @@ class BooleanAttributeTest extends TestCase
         $model->has_agreed_to_something = 1;
 
         $this->assertSame(
-            Carbon::now()->format('Y-m-d H:i:s'),
-            $model->agreed_to_something_at
+            Carbon::now()->format('Y-m-d H:i'),
+            $model->agreed_to_something_at->format('Y-m-d H:i')
         );
     }
 
@@ -93,8 +93,8 @@ class BooleanAttributeTest extends TestCase
         $model->has_accepted_terms_and_conditions = '1';
 
         $this->assertSame(
-            Carbon::now()->format('Y-m-d H:i:s'),
-            $model->accepted_terms_at
+            Carbon::now()->format('Y-m-d H:i'),
+            $model->accepted_terms_at->format('Y-m-d H:i')
         );
     }
 
