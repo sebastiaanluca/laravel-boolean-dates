@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "laravel/framework": "^5.8",
+        "laravel/framework": "~5.8.0",
         "nesbot/carbon": "^1.22.1|^2.0",
         "php": "^7.2"
     },

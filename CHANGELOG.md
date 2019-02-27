@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 2.0.1 (2019-02-27)
+
+### Fixed
+
+- Correctly tag Laravel version requirement
+
 ## 2.0.0 (2019-02-27)
 
 ### Added
