@@ -24,14 +24,4 @@ class TestModel extends Model
         'allows_data_processing' => 'accepted_processing_at',
         'has_agreed_to_something' => 'agreed_to_something_at',
     ];
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = [
-        'accepted_processing_at',
-        'tested_at',
-    ];
 }

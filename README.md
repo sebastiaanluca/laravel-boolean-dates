@@ -40,7 +40,7 @@ $user->has_accepted_terms_and_conditions;
 $user->accepted_terms_and_conditions_at;
 
 /*
- * 2018-05-10 16:24:22 (string or Carbon instance)
+ * 2018-05-10 16:24:22 (Carbon instance)
  */
 ```
 
@@ -76,7 +76,7 @@ $user->accepted_terms_and_conditions_at;
 composer require sebastiaanluca/laravel-boolean-dates
 ```
 
-**Require the `HasBooleanDates` trait** in your Eloquent model, then add the `$booleanDates` and `$dates` (optional) fields:
+**Require the `HasBooleanDates` trait** in your Eloquent model, then add the `$booleanDates` field:
 
 ```php
 <?php
@@ -96,21 +96,8 @@ class User extends Model
         'allows_data_processing' => 'accepted_processing_at',
         'has_agreed_to_something' => 'agreed_to_something_at',
     ];
-    
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = [
-        'accepted_terms_at',
-        'accepted_processing_at',
-        'agreed_to_something_at',
-    ];
 }
 ```
-
-Adding the boolean date fields to the `$dates` array is **optional**, but encouraged as it'll convert all your boolean datetimes to Carbon instances.
 
 To wrap up, create a **migration** to create a new or alter your existing table and add the timestamp fields:
 
@@ -210,7 +197,7 @@ $user = User::findOrFail(42);
 $user->accepted_terms_at;
 
 /*
- * 2018-05-10 16:24:22 (string or Carbon instance)
+ * 2018-05-10 16:24:22 (Carbon instance)
  */
 
 $user->accepted_processing_at;
@@ -233,7 +220,7 @@ $user->toArray();
  * Which will return something like:
  * 
  * [
- *     'accepted_terms_at' => '2018-05-10 16:24:22',
+ *     'accepted_terms_at' => \Carbon\Carbon('2018-05-10 16:24:22'),
  *     'accepted_processing_at' => NULL,
  *     'agreed_to_something_at' => \Carbon\Carbon('2018-05-10 16:24:22'),
  *     'accepted_terms_and_conditions' => true,

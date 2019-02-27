@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+### Added
+
+- Automatically detect a model's boolean date fields
+
 ### Changed
 
 - Add support for Laravel 5.8 (requires PHP 7.2 or higher)

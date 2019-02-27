@@ -9,6 +9,19 @@ use Carbon\Carbon;
 trait HasBooleanDates
 {
     /**
+     * Initialize the trait.
+     */
+    public function initializeHasBooleanDates() : void
+    {
+        $this->dates = array_unique(
+            array_merge(
+                $this->dates,
+                array_values($this->getBooleanDates())
+            )
+        );
+    }
+
+    /**
      * Convert the model's attributes to an array.
      *
      * @return array
