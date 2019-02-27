@@ -29,7 +29,6 @@
         "php": "^7.2"
     },
     "require-dev": {
-        "dms/phpunit-arraysubset-asserts": "^0.1.0",
         "kint-php/kint": "^3.1",
         "mockery/mockery": "^1.2",
         "orchestra/testbench": "^3.8",
