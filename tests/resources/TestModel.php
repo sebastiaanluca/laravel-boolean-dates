@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace SebastiaanLuca\BooleanDates\Tests\resources;
 
 use Illuminate\Database\Eloquent\Model;
-use SebastiaanLuca\BooleanDates\BooleanDates;
+use SebastiaanLuca\BooleanDates\HasBooleanDates;
 
 class TestModel extends Model
 {
-    use BooleanDates;
+    use HasBooleanDates;
 
     /**
      * Set the date of fields to the current date and time if a counterpart boolean field is

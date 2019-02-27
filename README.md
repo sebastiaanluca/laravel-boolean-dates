@@ -10,9 +10,9 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-Say you've got a registration page for users where they need to accept your terms and perhaps can opt-in to certain features using checkboxes. With the new(-ish) GDPR privacy laws, you're somewhat required to not just keep track of the fact *if* they accepted those (or not), but also *when* they did.
+**A package to automatically convert boolean fields to dates (and back to booleans) so you always know when something was accepted or changed.**
 
-**This package automatically converts those boolean fields to dates so you always know when something was accepted or changed.**
+Say you've got a registration page for users where they need to accept your terms and perhaps can opt-in to certain features using checkboxes. With the new(-ish) GDPR privacy laws, you're somewhat required to not just keep track of the fact *if* they accepted those (or not), but also *when* they did.
 
 ### Example
 
@@ -76,17 +76,17 @@ $user->accepted_terms_and_conditions_at;
 composer require sebastiaanluca/laravel-boolean-dates
 ```
 
-**Require the `BooleanDates` trait** in your Eloquent model, then add the `$booleanDates` and `$dates` (optional) fields:
+**Require the `HasBooleanDates` trait** in your Eloquent model, then add the `$booleanDates` and `$dates` (optional) fields:
 
 ```php
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use SebastiaanLuca\BooleanDates\BooleanDates;
+use SebastiaanLuca\BooleanDates\HasBooleanDates;
 
 class User extends Model
 {
-    use BooleanDates;
+    use HasBooleanDates;
     
     /**
      * @var array

@@ -9,6 +9,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed
 
 - Add support for Laravel 5.8 (requires PHP 7.2 or higher)
+- Renamed `BooleanDates` trait to `HasBooleanDates`
 
 ### Removed
 

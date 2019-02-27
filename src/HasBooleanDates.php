@@ -6,7 +6,7 @@ namespace SebastiaanLuca\BooleanDates;
 
 use Carbon\Carbon;
 
-trait BooleanDates
+trait HasBooleanDates
 {
     /**
      * Convert the model's attributes to an array.
