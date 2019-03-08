@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace SebastiaanLuca\BooleanDates\Tests\Feature;
 
 use Carbon\Carbon;
-use SebastiaanLuca\BooleanDates\Tests\Assert;
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use SebastiaanLuca\BooleanDates\Tests\resources\TestModel;
 use SebastiaanLuca\BooleanDates\Tests\TestCase;
 
 class BooleanArrayTest extends TestCase
 {
+    use ArraySubsetAsserts;
+
     /**
      * @test
      */
@@ -59,7 +61,7 @@ class BooleanArrayTest extends TestCase
             'agreed_to_something_at' => null,
         ];
 
-        Assert::assertArraySubset(
+        ArraySubsetAsserts::assertArraySubset(
             $expected,
             $model->toArray()
         );
