@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ##  Unreleased
 
+## 2.0.2 (2019-03-08)
+
+### Changed
+
+- Replaced custom array subset with package
+
 ## 2.0.1 (2019-02-27)
 
 ### Fixed
