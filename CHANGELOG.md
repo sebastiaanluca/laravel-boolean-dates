@@ -4,7 +4,11 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-##  Unreleased
+## 3.0.0 (2019-09-06)
+
+### Added
+
+- Added support for Laravel 6.0
 
 ## 2.0.2 (2019-03-08)
 
