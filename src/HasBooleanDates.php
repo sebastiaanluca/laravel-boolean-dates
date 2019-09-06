@@ -10,6 +10,8 @@ trait HasBooleanDates
 {
     /**
      * Initialize the trait.
+     *
+     * @return void
      */
     public function initializeHasBooleanDates() : void
     {
@@ -106,6 +108,8 @@ trait HasBooleanDates
     /**
      * @param string $key
      * @param mixed $value
+     *
+     * @return void
      */
     protected function setBooleanDate(string $key, $value) : void
     {
@@ -155,7 +159,7 @@ trait HasBooleanDates
     }
 
     /**
-     * @param $value
+     * @param mixed $value
      *
      * @return string|null
      */
