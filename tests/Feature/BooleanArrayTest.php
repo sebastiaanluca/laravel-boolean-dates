@@ -57,7 +57,7 @@ class BooleanArrayTest extends TestCase
             'has_agreed_to_something' => false,
 
             'accepted_terms_at' => null,
-            'accepted_processing_at' => '2018-01-01 10:42:06',
+            'accepted_processing_at' => '2018-01-01T10:42:06.000000Z',
             'agreed_to_something_at' => null,
         ];
 
