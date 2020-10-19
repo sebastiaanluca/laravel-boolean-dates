@@ -4,6 +4,12 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 5.0.0 (2020-10-19)
+
+### Added
+
+- Added support for Laravel 8
+
 ## 4.0.0 (2020-04-24)
 
 ### Added
