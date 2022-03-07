@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SebastiaanLuca\BooleanDates;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 trait HasBooleanDates
 {
