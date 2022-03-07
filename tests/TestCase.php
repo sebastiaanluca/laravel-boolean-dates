@@ -10,11 +10,13 @@ use SebastiaanLuca\BooleanDates\BooleanDatesServiceProvider;
 class TestCase extends BaseTestCase
 {
     /**
+     * Get package providers.
+     *
      * @param \Illuminate\Foundation\Application $app
      *
-     * @return array
+     * @return array<int, class-string>
      */
-    protected function getPackageProviders($app) : array
+    protected function getPackageProviders($app): array
     {
         return [
             BooleanDatesServiceProvider::class,
