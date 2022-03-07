@@ -8,12 +8,7 @@ use Carbon\Carbon;
 
 trait HasBooleanDates
 {
-    /**
-     * Initialize the trait.
-     *
-     * @return void
-     */
-    public function initializeHasBooleanDates() : void
+    public function initializeHasBooleanDates(): void
     {
         $this->dates = array_unique(
             array_merge(
@@ -23,27 +18,13 @@ trait HasBooleanDates
         );
     }
 
-    /**
-     * Convert the model's attributes to an array.
-     *
-     * @return array
-     */
-    public function attributesToArray() : array
+    public function attributesToArray(): array
     {
         $attributes = parent::attributesToArray();
 
-        $attributes = $this->addBooleanDateAttributesToArray($attributes);
-
-        return $attributes;
+        return $this->addBooleanDateAttributesToArray($attributes);
     }
 
-    /**
-     * Get an attribute from the model.
-     *
-     * @param string $key
-     *
-     * @return mixed
-     */
     public function getAttribute($key)
     {
         if (! $key) {
@@ -57,14 +38,6 @@ trait HasBooleanDates
         return parent::getAttribute($key);
     }
 
-    /**
-     * Set a given attribute on the model.
-     *
-     * @param string $key
-     * @param mixed $value
-     *
-     * @return $this
-     */
     public function setAttribute($key, $value)
     {
         if ($this->hasBooleanDate($key)) {
@@ -76,18 +49,12 @@ trait HasBooleanDates
         return parent::setAttribute($key, $value);
     }
 
-    /**
-     * @return array
-     */
-    public function getBooleanDates() : array
+    public function getBooleanDates(): array
     {
         return $this->booleanDates ?? [];
     }
 
-    /**
-     * @return array
-     */
-    protected function getBooleanDateAttributes() : array
+    protected function getBooleanDateAttributes(): array
     {
         return array_intersect_key(
             $this->getAttributes(),
@@ -95,23 +62,12 @@ trait HasBooleanDates
         );
     }
 
-    /**
-     * @param mixed $key
-     *
-     * @return bool
-     */
-    protected function getBooleanDate($key) : bool
+    protected function getBooleanDate(string $key): bool
     {
         return parent::getAttribute($this->getBooleanDateField($key)) !== null;
     }
 
-    /**
-     * @param string $key
-     * @param mixed $value
-     *
-     * @return void
-     */
-    protected function setBooleanDate(string $key, $value) : void
+    protected function setBooleanDate(string $key, mixed $value): void
     {
         // Only update the timestamp if the value is true and if it's not yet set
         // or if the value is false and we need to unset the field.
@@ -124,22 +80,12 @@ trait HasBooleanDates
         }
     }
 
-    /**
-     * @param string $key
-     *
-     * @return bool
-     */
-    protected function hasBooleanDate(string $key) : bool
+    protected function hasBooleanDate(string $key): bool
     {
         return array_key_exists($key, $this->getBooleanDates());
     }
 
-    /**
-     * @param mixed $key
-     *
-     * @return bool
-     */
-    protected function currentBooleanDateFieldValueIsNotYetSet($key) : bool
+    protected function currentBooleanDateFieldValueIsNotYetSet(string $key): bool
     {
         if (! array_key_exists($this->getBooleanDateField($key), $this->getAttributes())) {
             return true;
@@ -148,32 +94,17 @@ trait HasBooleanDates
         return parent::getAttribute($this->getBooleanDateField($key)) === null;
     }
 
-    /**
-     * @param mixed $key
-     *
-     * @return string
-     */
-    protected function getBooleanDateField($key) : string
+    protected function getBooleanDateField(string $key): string
     {
         return $this->booleanDates[$key];
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return string|null
-     */
-    protected function getNewBooleanDateValue($value) : ?string
+    protected function getNewBooleanDateValue(mixed $value): ?string
     {
         return $value ? $this->fromDateTime(Carbon::now()) : null;
     }
 
-    /**
-     * @param array $attributes
-     *
-     * @return array
-     */
-    protected function addBooleanDateAttributesToArray(array $attributes) : array
+    protected function addBooleanDateAttributesToArray(array $attributes): array
     {
         foreach ($this->getBooleanDates() as $booleanField => $date) {
             if (! array_key_exists($date, $attributes)) {
