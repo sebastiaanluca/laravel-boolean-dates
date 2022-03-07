@@ -1,4 +1,4 @@
-# Automatically convert Eloquent model boolean attributes to dates (and back)
+# Convert Eloquent boolean attributes to dates (and back)
 
 [![Latest stable release][version-badge]][link-packagist]
 [![Software license][license-badge]](LICENSE.md)
@@ -11,7 +11,7 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-**A package to automatically convert boolean fields to dates (and back to booleans) so you always know when something was accepted or changed.**
+**Automatically convert Eloquent model boolean fields to dates (and back to booleans)** so you always know _when_ something was accepted or changed.
 
 Say you've got a registration page for users where they need to accept your terms and perhaps can opt-in to certain features using checkboxes. With the new(-ish) GDPR privacy laws, you're somewhat required to not just keep track of the fact *if* they accepted those (or not), but also *when* they did.
 
@@ -66,8 +66,8 @@ $user->accepted_terms_and_conditions_at;
 
 ## Requirements
 
-- PHP 7.3 or higher
-- Laravel 7.0 or higher
+- PHP 8 or 8.1
+- Laravel 8 or 9
 
 ## How to install
 
@@ -100,34 +100,29 @@ class User extends Model
 }
 ```
 
-To wrap up, create a **migration** to create a new or alter your existing table and add the timestamp fields:
+To wrap up, create a **migration** to create a new table or alter your existing table to add the timestamp fields:
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAgreementFields extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up() : void
+return new class extends Migration {
+    public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', static function (Blueprint $table): void {
             $table->timestamp('accepted_terms_at')->nullable();
             $table->timestamp('accepted_processing_at')->nullable();
             $table->timestamp('agreed_to_something_at')->nullable();
         });
     }
-}
-```
+};
 
-Note: the related boolean fields are dynamic and do not need database fields.
+```
 
 ## How to use
 
@@ -143,9 +138,7 @@ $user->has_accepted_terms_and_conditions = true;
 $user->allows_data_processing = 'yes';
 
 // Or using attribute filling
-$user->fill([
-   'has_agreed_to_something' => 1, 
-]);
+$user->fill(['has_agreed_to_something' => 1]);
 
 $user->save();
 ```
@@ -183,9 +176,7 @@ $user = User::findOrFail(42);
 
 $user->has_accepted_terms_and_conditions;
 
-/*
- * true or false (boolean)
- */
+// true or false (boolean)
 ```
 
 #### Retrieving fields as datetimes
@@ -195,17 +186,11 @@ Use a boolean field's defined _value_ to explicitly access its (Carbon) datetime
 ```php
 $user = User::findOrFail(42);
 
+// 2018-05-10 16:24:22 (Carbon instance)
 $user->accepted_terms_at;
 
-/*
- * 2018-05-10 16:24:22 (Carbon instance)
- */
-
+// null
 $user->accepted_processing_at;
-
-/*
- * NULL
- */
 ```
 
 ### Array conversion
@@ -221,9 +206,9 @@ $user->toArray();
  * Which will return something like:
  * 
  * [
- *     'accepted_terms_at' => \Carbon\Carbon('2018-05-10 16:24:22'),
+ *     'accepted_terms_at' => \Illuminate\Support\Carbon('2018-05-10 16:24:22'),
  *     'accepted_processing_at' => NULL,
- *     'agreed_to_something_at' => \Carbon\Carbon('2018-05-10 16:24:22'),
+ *     'agreed_to_something_at' => \Illuminate\Support\Carbon('2018-05-10 16:24:22'),
  *     'accepted_terms_and_conditions' => true,
  *     'allows_data_processing' => false,
  *     'agreed_to_something' => true,
@@ -282,8 +267,8 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 [link-twitter-share]: https://twitter.com/intent/tweet?text=Easily%20convert%20Eloquent%20model%20booleans%20to%20dates%20and%20back%20with%20Laravel%20Boolean%20Dates.%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-boolean-dates
 [link-contributors]: ../../contributors
 
-[link-portfolio]: https://www.sebastiaanluca.com
-[link-blog]: https://blog.sebastiaanluca.com
+[link-portfolio]: https://sebastiaanluca.com
+[link-blog]: https://sebastiaanluca.com/blog
 [link-packages]: https://packagist.org/packages/sebastiaanluca
 [link-twitter]: https://twitter.com/sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
