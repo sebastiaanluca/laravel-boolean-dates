@@ -4,6 +4,23 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 6.0.0 (2022-03-09)
+
+### Added
+
+- Added support for Laravel 9
+
+### Changed
+
+- Cleaned up code internally
+- Switched to using `\Illuminate\Support\Carbon` instead of `\Carbon\Carbon`
+
+### Removed
+
+- Dropped support for PHP 7.x
+- Dropped support for Laravel 7
+- Removed requirements for `nesbot/carbon`
+
 ## 5.0.0 (2020-10-19)
 
 ### Added
