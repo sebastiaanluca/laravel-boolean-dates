@@ -16,7 +16,7 @@ class BooleanArrayTest extends TestCase
     /**
      * @test
      */
-    public function it returns all boolean dates() : void
+    public function it returns all boolean dates(): void
     {
         $model = new TestModel;
 
@@ -35,7 +35,7 @@ class BooleanArrayTest extends TestCase
     /**
      * @test
      */
-    public function it returns all attributes() : void
+    public function it returns all attributes(): void
     {
         Carbon::setTestNow('2018-01-01 10:42:06');
 

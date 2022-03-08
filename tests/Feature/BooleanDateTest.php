@@ -13,7 +13,7 @@ class BooleanDateTest extends TestCase
     /**
      * @test
      */
-    public function it leaves other date attributes untouched() : void
+    public function it leaves other date attributes untouched(): void
     {
         $model = new TestModel;
 
@@ -28,7 +28,7 @@ class BooleanDateTest extends TestCase
     /**
      * @test
      */
-    public function it returns a date object from a true attribute() : void
+    public function it returns a date object from a true attribute(): void
     {
         $model = new TestModel;
 
@@ -48,7 +48,7 @@ class BooleanDateTest extends TestCase
     /**
      * @test
      */
-    public function it returns null from a false attribute() : void
+    public function it returns null from a false attribute(): void
     {
         $model = new TestModel;
 

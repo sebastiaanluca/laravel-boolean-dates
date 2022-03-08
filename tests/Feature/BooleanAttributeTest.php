@@ -13,7 +13,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it skips returning invalid fields() : void
+    public function it skips returning invalid fields(): void
     {
         $model = new TestModel;
 
@@ -26,7 +26,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it leaves other attributes untouched() : void
+    public function it leaves other attributes untouched(): void
     {
         $model = new TestModel;
 
@@ -41,7 +41,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it sets the date from a true boolean() : void
+    public function it sets the date from a true boolean(): void
     {
         $model = new TestModel;
 
@@ -56,7 +56,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it sets the date from a non empty string() : void
+    public function it sets the date from a non empty string(): void
     {
         $model = new TestModel;
 
@@ -71,7 +71,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it sets the date from a positive integer value() : void
+    public function it sets the date from a positive integer value(): void
     {
         $model = new TestModel;
 
@@ -86,7 +86,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it sets the date from a positive integer string value() : void
+    public function it sets the date from a positive integer string value(): void
     {
         $model = new TestModel;
 
@@ -101,7 +101,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it clears the date from a false boolean() : void
+    public function it clears the date from a false boolean(): void
     {
         $model = new TestModel;
 
@@ -113,7 +113,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it clears the date from null() : void
+    public function it clears the date from null(): void
     {
         $model = new TestModel;
 
@@ -125,7 +125,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it clears the date from a false string value() : void
+    public function it clears the date from a false string value(): void
     {
         $model = new TestModel;
 
@@ -137,7 +137,7 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
-    public function it clears the date from an empty string value() : void
+    public function it clears the date from an empty string value(): void
     {
         $model = new TestModel;
 

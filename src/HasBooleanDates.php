@@ -14,8 +14,6 @@ trait HasBooleanDates
      *
      * Keys and values should be in the format: `'boolean_field' =>
      * 'internal_timestamp_field'`.
-     *
-     * @var array
      */
     protected array $booleanDates = [];
 
