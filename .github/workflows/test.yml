@@ -47,8 +47,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-progress --no-update --no-suggest
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader
+          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-progress --no-update
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-progress --optimize-autoloader
 
       - name: Lint code
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
