@@ -18,7 +18,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Removed
 
 - Dropped support for PHP 7.x
-- Dropped support for Laravel 7
+- Dropped support for Laravel 7 and 8
 - Removed requirements for `nesbot/carbon`
 
 ## 5.0.0 (2020-10-19)
