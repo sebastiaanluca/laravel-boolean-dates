@@ -4,7 +4,7 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## 6.0.0 (2022-03-08)
+## Unreleased
 
 ### Added
 
@@ -12,7 +12,6 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 
-- Switched to using `$casts` internally as `$dates` is deprecated
 - Switched to using `\Illuminate\Support\Carbon` and `\Carbon\CarbonImmutable` instead of `\Carbon\Carbon`
 - Cleaned up code internally
 
