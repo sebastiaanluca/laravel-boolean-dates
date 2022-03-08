@@ -32,17 +32,11 @@ $user = User::create([
 Anywhere else in your code:
 
 ```php
+// true or false (boolean)
 $user->has_accepted_terms_and_conditions;
 
-/*
- * true or false (boolean)
- */
- 
+// 2018-05-10 16:24:22 (Carbon instance)
 $user->accepted_terms_and_conditions_at;
-
-/*
- * 2018-05-10 16:24:22 (Carbon instance)
- */
 ```
 
 ## Table of contents
@@ -89,10 +83,7 @@ class User extends Model
 {
     use HasBooleanDates;
     
-    /**
-     * @var array
-     */
-    protected $booleanDates = [
+    protected array $booleanDates = [
         'has_accepted_terms_and_conditions' => 'accepted_terms_at',
         'allows_data_processing' => 'accepted_processing_at',
         'has_agreed_to_something' => 'agreed_to_something_at',
