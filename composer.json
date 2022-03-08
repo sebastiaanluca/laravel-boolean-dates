@@ -30,6 +30,7 @@
     },
     "require-dev": {
         "dms/phpunit-arraysubset-asserts": "^0.4.0",
+        "friendsofphp/php-cs-fixer": "^3.7",
         "mockery/mockery": "^1.5",
         "orchestra/testbench": "^v6.24|^7.1",
         "phpunit/phpunit": "^9.5"
@@ -57,20 +58,22 @@
         }
     },
     "scripts": {
-        "composer-validate": "@composer validate --no-check-all --strict --ansi",
+        "composer:validate": "@composer validate --no-check-all --strict --ansi",
         "test": "vendor/bin/phpunit",
-        "test-lowest": [
-            "composer update --prefer-lowest --prefer-dist --no-interaction --ansi",
-            "@test"
-        ],
-        "test-stable": [
-            "composer update --prefer-stable --prefer-dist --no-interaction --ansi",
-            "@test"
-        ],
+        "lint": "vendor/bin/php-cs-fixer fix --dry-run --diff --ansi",
+        "fix": "vendor/bin/php-cs-fixer fix --ansi",
         "check": [
-            "@composer-validate",
+            "@composer:validate",
+            "@lint",
             "@test"
+        ],
+        "check-lowest": [
+            "composer update --prefer-lowest --prefer-dist --no-interaction --ansi",
+            "@check"
+        ],
+        "check-stable": [
+            "composer update --prefer-stable --prefer-dist --no-interaction --ansi",
+            "@check"
         ]
     }
 }
-
