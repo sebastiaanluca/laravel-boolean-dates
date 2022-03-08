@@ -12,8 +12,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 
-- Switched to using `\Illuminate\Support\Carbon` instead of `\Carbon\Carbon`
 - Switched to using `$casts` internally as `$dates` is deprecated
+- Switched to using `\Illuminate\Support\Carbon` and `\Carbon\CarbonImmutable` instead of `\Carbon\Carbon`
 - Cleaned up code internally
 
 ### Removed
