@@ -58,7 +58,7 @@
         }
     },
     "scripts": {
-        "composer:validate": "@composer validate --no-check-all --strict --ansi",
+        "composer:validate": "@composer validate --strict --ansi",
         "test": "vendor/bin/phpunit",
         "lint": "vendor/bin/php-cs-fixer fix --dry-run --diff --ansi",
         "fix": "vendor/bin/php-cs-fixer fix --ansi",
