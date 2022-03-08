@@ -8,6 +8,17 @@ use Illuminate\Support\Carbon;
 
 trait HasBooleanDates
 {
+    /**
+     * Set the date of fields to the current date and time if a counterpart
+     * boolean field is true-ish.
+     *
+     * Keys and values should be in the format: `'boolean_field' =>
+     * 'internal_timestamp_field'`.
+     *
+     * @var array
+     */
+    protected array $booleanDates = [];
+
     public function initializeHasBooleanDates(): void
     {
         $this->dates = array_unique(
