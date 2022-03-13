@@ -21,8 +21,8 @@ class BooleanDateAttribute extends Attribute
     {
         // Only update the field if it's never been set before or when it's being "disabled"
 
-        if ($value === false || ! array_key_exists($column, $attributes) || $attributes[$column] === null) {
-            return [$column => $value === false ? null : CarbonImmutable::now()];
+        if (! $value || ! array_key_exists($column, $attributes) || $attributes[$column] === null) {
+            return [$column => ! $value ? null : CarbonImmutable::now()];
         }
 
         return [];
