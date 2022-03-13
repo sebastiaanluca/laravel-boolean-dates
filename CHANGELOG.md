@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+⚠️ This release is a complete rewrite and changes the way it has to be used. Please consult the [README](README.md) for instructions.
+
 ### Added
 
 - Added support for Laravel 9
@@ -14,12 +16,14 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Switched to using `\Illuminate\Support\Carbon` and `\Carbon\CarbonImmutable` instead of `\Carbon\Carbon`
 - Cleaned up code internally
+- Added `BooleanDateAttribute`
 
 ### Removed
 
 - Dropped support for PHP 7.x
 - Dropped support for Laravel 7 and 8
 - Removed requirements for `nesbot/carbon`
+- Removed `HasBooleanDates` trait
 
 ## 5.0.0 (2020-10-19)
 
