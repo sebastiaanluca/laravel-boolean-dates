@@ -4,7 +4,7 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## Unreleased
+## 6.0.0 (2022-03-13)
 
 ⚠️ This release is a complete rewrite and changes the way it has to be used. Please consult the [README](README.md) for instructions.
 
