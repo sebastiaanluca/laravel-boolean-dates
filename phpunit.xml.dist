@@ -20,7 +20,7 @@
     </coverage>
     <testsuites>
         <testsuite name="Feature tests">
-            <directory>tests/Feature</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
