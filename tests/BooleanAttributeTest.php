@@ -237,6 +237,18 @@ class BooleanAttributeTest extends TestCase
     /**
      * @test
      */
+    public function it can disable a boolean attribute from an empty string(): void
+    {
+        $model = new TestModel;
+
+        $model->has_accepted_terms = '';
+
+        $this->assertNull($model->accepted_terms_at);
+    }
+
+    /**
+     * @test
+     */
     public function it returns all attributes(): void
     {
         Carbon::setTestNow('2018-01-01 10:42:06');
