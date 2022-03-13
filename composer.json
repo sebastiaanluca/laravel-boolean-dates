@@ -58,11 +58,11 @@
             "@lint",
             "@test"
         ],
-        "check-lowest": [
+        "check:lowest": [
             "composer update --prefer-lowest --prefer-dist --no-interaction --ansi",
             "@check"
         ],
-        "check-stable": [
+        "check:stable": [
             "composer update --prefer-stable --prefer-dist --no-interaction --ansi",
             "@check"
         ]
