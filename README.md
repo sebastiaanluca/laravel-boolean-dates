@@ -23,9 +23,8 @@ User registration controller:
 $input = request()->input();
 
 $user = User::create([
-    'has_accepted_terms_and_conditions' => $input['terms'],
-    'allows_data_processing' => $input['data_processing'],
-    'has_agreed_to_something' => $input['something'],
+    'has_accepted_terms' => $input['terms'],
+    'is_subscribed_to_newsletter' => $input['newsletter'],
 ]);
 ```
 
@@ -33,10 +32,10 @@ Anywhere else in your code:
 
 ```php
 // true or false (boolean)
-$user->has_accepted_terms_and_conditions;
+$user->has_accepted_terms;
 
 // 2018-05-10 16:24:22 (Carbon instance)
-$user->accepted_terms_and_conditions_at;
+$user->accepted_terms_at;
 ```
 
 ## Table of contents
@@ -75,10 +74,12 @@ composer require sebastiaanluca/laravel-boolean-dates
 
 1. Adding your datetime columns to `$casts`
 2. Adding the boolean attributes to `$appends`
-3. Creating attribute accessors mutators for each field
+3. Creating attribute accessors and mutators for each field
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
 use SebastiaanLuca\BooleanDates\BooleanDateAttribute;
@@ -92,8 +93,7 @@ class User extends Model
      */
     protected $casts = [
         'accepted_terms_at' => 'immutable_datetime',
-        'allowed_data_processing_at' => 'immutable_datetime',
-        'subscribed_to_newsletter_at' => 'immutable_datetime',
+        'subscribed_to_newsletter_at' => 'datetime',
     ];
 
     /**
@@ -103,8 +103,7 @@ class User extends Model
      */
     protected $appends = [
         'has_accepted_terms',
-        'has_allowed_data_processing',
-        'has_subscribed_to_newsletter',
+        'is_subscribed_to_newsletter',
     ];
 
     protected function hasAcceptedTerms(): Attribute
@@ -112,12 +111,7 @@ class User extends Model
         return BooleanDateAttribute::for('accepted_terms_at');
     }
 
-    protected function hasAllowedDataProcessing(): Attribute
-    {
-        return BooleanDateAttribute::for('allowed_data_processing_at');
-    }
-
-    protected function hasSubscribedToNewsletter(): Attribute
+    protected function isSubscribedToNewsletter(): Attribute
     {
         return BooleanDateAttribute::for('subscribed_to_newsletter_at');
     }
@@ -140,7 +134,6 @@ return new class extends Migration {
     {
         Schema::table('users', static function (Blueprint $table): void {
             $table->timestamp('accepted_terms_at')->nullable();
-            $table->timestamp('allowed_data_processing_at')->nullable();
             $table->timestamp('subscribed_to_newsletter_at')->nullable();
         });
     }
@@ -152,34 +145,38 @@ return new class extends Migration {
 
 ### Saving dates
 
-If a boolean date field's value is true, it'll be automatically converted to the current datetime:
+If a boolean date field's value is true-ish, it'll be automatically converted to the current datetime. You can use anything like booleans, strings, positive integers, and so on.
 
 ```php
 $user = new User;
 
 // Setting values explicitly
-$user->has_accepted_terms_and_conditions = true;
-$user->allows_data_processing = 'yes';
+$user->has_accepted_terms = true;
+$user->has_accepted_terms = 'yes';
+$user->has_accepted_terms = '1';
+$user->has_accepted_terms = 1;
 
 // Or using attribute filling
-$user->fill(['has_agreed_to_something' => 1]);
+$user->fill(['is_subscribed_to_newsletter' => 'yes']);
 
 $user->save();
 ```
 
 All fields should now contain a datetime similar to `2018-05-10 16:24:22`.
 
-Note that the date stored in the database column **is immutable, i.e. it's only set once**. Any following updates will not change the stored date(time), unless you update the date column manually or if you set it to `false` and back to `true`.
+Note that the date stored in the database column **is immutable, i.e. it's only set once**. Any following updates will not change the stored date(time), unless you update the date column manually or if you set it to `false` and back to `true` (disabling, then enabling it).
+
+For example:
 
 ```php
 $user = new User;
 
-$user->has_accepted_terms_and_conditions = true;
+$user->has_accepted_terms = true;
 $user->save();
 
 // `accepted_terms_at` column will contain `2022-03-13 13:20:00`
 
-$user->has_accepted_terms_and_conditions = true;
+$user->has_accepted_terms = true;
 $user->save();
 
 // `accepted_terms_at` column will still contain the original `2022-03-13 13:20:00` date
@@ -192,13 +189,12 @@ Of course you can also remove the saved date and time, for instance if a user re
 ```php
 $user = User::findOrFail(42);
 
-$user->has_accepted_terms_and_conditions = false;
-// $user->has_accepted_terms_and_conditions = null;
-
-$user->allows_data_processing = 0;
-// $user->allows_data_processing = '0';
-
-$user->has_agreed_to_something = '';
+$user->has_accepted_terms = false;
+$user->has_accepted_terms = null;
+$user->has_accepted_terms = '0';
+$user->has_accepted_terms = 0;
+$user->has_accepted_terms = '';
+// $user->has_accepted_terms = null;
 
 $user->save();
 ```
@@ -214,9 +210,8 @@ Use a boolean field's defined _key_ to access its boolean value:
 ```php
 $user = User::findOrFail(42);
 
-$user->has_accepted_terms_and_conditions;
-
 // true or false (boolean)
+$user->has_accepted_terms;
 ```
 
 #### Retrieving fields as datetimes
@@ -226,16 +221,16 @@ Use a boolean field's defined _value_ to explicitly access its (Carbon) datetime
 ```php
 $user = User::findOrFail(42);
 
-// 2018-05-10 16:24:22 (Carbon instance)
+// 2018-05-10 16:24:22 (Carbon or CarbonImmutable instance)
 $user->accepted_terms_at;
 
 // null
-$user->accepted_processing_at;
+$user->is_subscribed_to_newsletter;
 ```
 
 ### Array conversion
 
-When converting a model to an array, all boolean fields ánd their datetimes will be included:
+When converting a model to an array, the boolean fields will be included if you've added them to the `$appends` array in your model.
 
 ```php
 $user = User::findOrFail(42);
@@ -246,12 +241,10 @@ $user->toArray();
  * Which will return something like:
  * 
  * [
- *     'accepted_terms_at' => \Illuminate\Support\Carbon('2018-05-10 16:24:22'),
- *     'accepted_processing_at' => NULL,
- *     'agreed_to_something_at' => \Illuminate\Support\Carbon('2018-05-10 16:24:22'),
- *     'accepted_terms_and_conditions' => true,
- *     'allows_data_processing' => false,
- *     'agreed_to_something' => true,
+ *     'accepted_terms_at' => \Carbon\CarbonImmutable('2018-05-10 16:24:22'),
+ *     'subscribed_to_newsletter_at' => \Illuminate\Support\Carbon('2018-05-10 16:24:22'),
+ *     'has_accepted_terms' => true,
+ *     'is_subscribed_to_newsletter' => true,
  * ];
  */
 ```
