@@ -3,7 +3,6 @@
     "type": "library",
     "description": "Automatically convert Eloquent model boolean attributes to dates (and back).",
     "keywords": [
-        "php",
         "bool",
         "boolean",
         "convert",
@@ -12,6 +11,7 @@
         "eloquent",
         "laravel",
         "model",
+        "php",
         "timestamps"
     ],
     "homepage": "https://github.com/sebastiaanluca/laravel-boolean-dates",
@@ -20,7 +20,7 @@
         {
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
-            "homepage": "https://www.sebastiaanluca.com",
+            "homepage": "https://sebastiaanluca.com",
             "role": "Author"
         }
     ],
@@ -29,9 +29,7 @@
         "illuminate/support": "^9.0"
     },
     "require-dev": {
-        "dms/phpunit-arraysubset-asserts": "^0.4.0",
         "friendsofphp/php-cs-fixer": "^3.7",
-        "mockery/mockery": "^1.5",
         "orchestra/testbench": "^7.1",
         "phpunit/phpunit": "^9.5"
     },
