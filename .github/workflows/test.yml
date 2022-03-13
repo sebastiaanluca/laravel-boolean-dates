@@ -7,13 +7,12 @@ on:
 jobs:
 
   check:
-    name: Run PHP tests - PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }}
+    name: Run PHP tests - PHP ${{ matrix.php }} - ${{ matrix.dependency-version }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         php: [8.0, 8.1]
-        laravel: [9.*]
         dependency-version: [prefer-lowest, prefer-stable]
         os: [ubuntu-latest]
 
@@ -33,7 +32,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache/files
-          key: composer-${{ runner.os }}-php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-${{ hashFiles('composer.json') }}
+          key: composer-${{ runner.os }}-php-${{ matrix.php }}-${{ hashFiles('composer.json') }}
 
       - name: Validate Composer configuration file
         run: composer validate --strict
@@ -46,9 +45,7 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-progress --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-progress --optimize-autoloader
+        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-progress --optimize-autoloader
 
       - name: Lint code
         run: vendor/bin/php-cs-fixer fix --dry-run --diff

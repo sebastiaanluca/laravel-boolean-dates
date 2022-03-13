@@ -61,7 +61,7 @@ $user->accepted_terms_and_conditions_at;
 ## Requirements
 
 - PHP 8 or 8.1
-- Laravel 8 or 9
+- Laravel ^9.2
 
 ## How to install
 
