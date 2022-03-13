@@ -71,27 +71,60 @@ $user->accepted_terms_and_conditions_at;
 composer require sebastiaanluca/laravel-boolean-dates
 ```
 
-**Require the `HasBooleanDates` trait** in your Eloquent model, then add the `$booleanDates` field:
+**Set up your Eloquent model** by:
+
+1. Adding your datetime columns to `$casts`
+2. Adding the boolean attributes to `$appends`
+3. Creating attribute accessors mutators for each field
 
 ```php
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use SebastiaanLuca\BooleanDates\HasBooleanDates;
+use SebastiaanLuca\BooleanDates\BooleanDateAttribute;
 
 class User extends Model
 {
-    use HasBooleanDates;
-    
-    protected array $booleanDates = [
-        'has_accepted_terms_and_conditions' => 'accepted_terms_at',
-        'allows_data_processing' => 'accepted_processing_at',
-        'has_agreed_to_something' => 'agreed_to_something_at',
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'accepted_terms_at' => 'immutable_datetime',
+        'allowed_data_processing_at' => 'immutable_datetime',
+        'subscribed_to_newsletter_at' => 'immutable_datetime',
     ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'has_accepted_terms',
+        'has_allowed_data_processing',
+        'has_subscribed_to_newsletter',
+    ];
+
+    protected function hasAcceptedTerms(): Attribute
+    {
+        return BooleanDateAttribute::for('accepted_terms_at');
+    }
+
+    protected function hasAllowedDataProcessing(): Attribute
+    {
+        return BooleanDateAttribute::for('allowed_data_processing_at');
+    }
+
+    protected function hasSubscribedToNewsletter(): Attribute
+    {
+        return BooleanDateAttribute::for('subscribed_to_newsletter_at');
+    }
 }
 ```
 
-To wrap up, create a **migration** to create a new table or alter your existing table to add the timestamp fields:
+Optionally, if your database table hasn't got the datetime columns yet, create a **migration** to create a new table or alter your existing table to add the timestamp fields:
 
 ```php
 <?php
@@ -107,8 +140,8 @@ return new class extends Migration {
     {
         Schema::table('users', static function (Blueprint $table): void {
             $table->timestamp('accepted_terms_at')->nullable();
-            $table->timestamp('accepted_processing_at')->nullable();
-            $table->timestamp('agreed_to_something_at')->nullable();
+            $table->timestamp('allowed_data_processing_at')->nullable();
+            $table->timestamp('subscribed_to_newsletter_at')->nullable();
         });
     }
 };
@@ -135,6 +168,22 @@ $user->save();
 ```
 
 All fields should now contain a datetime similar to `2018-05-10 16:24:22`.
+
+Note that the date stored in the database column **is immutable, i.e. it's only set once**. Any following updates will not change the stored date(time), unless you update the date column manually or if you set it to `false` and back to `true`.
+
+```php
+$user = new User;
+
+$user->has_accepted_terms_and_conditions = true;
+$user->save();
+
+// `accepted_terms_at` column will contain `2022-03-13 13:20:00`
+
+$user->has_accepted_terms_and_conditions = true;
+$user->save();
+
+// `accepted_terms_at` column will still contain the original `2022-03-13 13:20:00` date
+```
 
 ### Clearing saved values
 
