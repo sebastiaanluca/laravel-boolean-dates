@@ -16,7 +16,7 @@ class BooleanAttributeTest extends TestCase
     {
         $model = new TestModel([
             'accepted_terms_at' => 1,
-            'subscribed_to_newsletter_at' => now(),
+            'subscribed_to_newsletter_at' => Carbon::now(),
         ]);
 
         $this->assertInstanceOf(CarbonImmutable::class, $model->accepted_terms_at);
