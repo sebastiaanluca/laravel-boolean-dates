@@ -30,8 +30,8 @@
         "illuminate/support": "^10.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.7",
-        "phpunit/phpunit": "^10.0"
+        "friendsofphp/php-cs-fixer": "^3.14",
+        "phpunit/phpunit": "^9.6"
     },
     "autoload": {
         "psr-4": {
@@ -51,8 +51,8 @@
     "scripts": {
         "composer:validate": "@composer validate --strict --ansi",
         "test": "vendor/bin/phpunit",
-        "lint": "vendor/bin/php-cs-fixer fix --dry-run --diff --ansi",
-        "fix": "vendor/bin/php-cs-fixer fix --ansi",
+        "lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --dry-run --diff --ansi",
+        "fix": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --ansi",
         "check": [
             "@composer:validate",
             "@lint",
