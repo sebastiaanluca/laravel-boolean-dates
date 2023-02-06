@@ -4,6 +4,18 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 7.0.0 (2023-02-06)
+
+### Added
+
+- Added support for PHP 8.2
+- Added support for Laravel 10
+
+### Removed
+
+- Dropped support for PHP 8.0
+- Dropped support for Laravel 9
+
 ## 6.0.1 (2022-03-17)
 
 ### Fixed
