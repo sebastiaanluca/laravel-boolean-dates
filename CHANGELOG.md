@@ -4,6 +4,8 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 7.0.1 (2023-02-06)
+
 ## 7.0.0 (2023-02-06)
 
 ### Added
