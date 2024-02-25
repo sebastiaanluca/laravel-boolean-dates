@@ -21,8 +21,8 @@ use Rector\PHPUnit\Set\PHPUnitSetList;
 return RectorConfig::configure()
     ->withParallel()
     ->withPaths([
-        __DIR__.'/src',
-        __DIR__.'/tests',
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
     ])
     ->withImportNames(
         importDocBlockNames: false,
@@ -41,7 +41,6 @@ return RectorConfig::configure()
         PHPUnitSetList::PHPUNIT_80,
         PHPUnitSetList::PHPUNIT_90,
         PHPUnitSetList::PHPUNIT_100,
-        // PHPUnitSetList::PHPUNIT_110,
     ])
     ->withRules([
         BoolvalToTypeCastRector::class,
