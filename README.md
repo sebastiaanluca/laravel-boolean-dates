@@ -72,7 +72,7 @@ composer require sebastiaanluca/laravel-boolean-dates
 
 **Set up your Eloquent model** by:
 
-1. Adding your datetime columns to `$casts`
+1. Adding your datetime columns to the `$casts` property or `casts()` method
 2. Adding the boolean attributes to `$appends`
 3. Creating attribute accessors and mutators for each field
 

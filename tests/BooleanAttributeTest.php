@@ -6,12 +6,11 @@ namespace SebastiaanLuca\BooleanDates\Tests;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Carbon;
+use PHPUnit\Framework\Attributes\Test;
 
 class BooleanAttributeTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it can handle initial values(): void
     {
         $model = new TestModel([
@@ -26,9 +25,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertTrue($model->is_subscribed_to_newsletter);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can handle empty initial values(): void
     {
         $model = new TestModel;
@@ -37,9 +34,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertFalse($model->has_accepted_terms);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can enable a boolean attribute(): void
     {
         $model = new TestModel;
@@ -55,9 +50,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertTrue($model->has_accepted_terms);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can disable a boolean attribute(): void
     {
         $model = new TestModel;
@@ -73,9 +66,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertFalse($model->has_accepted_terms);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it cannot enable a boolean attribute twice and change its date(): void
     {
         Carbon::setTestNow('2022-03-13 14:31:00');
@@ -95,9 +86,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertTrue($model->has_accepted_terms);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can enable a boolean attribute twice if it was disabled(): void
     {
         Carbon::setTestNow('2022-03-13 14:00:00');
@@ -124,9 +113,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertTrue($model->is_subscribed_to_newsletter);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can enable a boolean attribute from a boolean(): void
     {
         $model = new TestModel;
@@ -141,9 +128,7 @@ class BooleanAttributeTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can enable a boolean attribute from a string(): void
     {
         $model = new TestModel;
@@ -156,9 +141,7 @@ class BooleanAttributeTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can enable a boolean attribute from an integer string(): void
     {
         $model = new TestModel;
@@ -171,9 +154,7 @@ class BooleanAttributeTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can enable a boolean attribute from an integer(): void
     {
         $model = new TestModel;
@@ -186,9 +167,7 @@ class BooleanAttributeTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can disable a boolean attribute from a boolean(): void
     {
         $model = new TestModel;
@@ -198,9 +177,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertNull($model->accepted_processing_at);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can disable a boolean attribute from null(): void
     {
         $model = new TestModel;
@@ -210,9 +187,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertNull($model->agreed_to_something_at);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can disable a boolean attribute from an integer string(): void
     {
         $model = new TestModel;
@@ -222,9 +197,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertNull($model->accepted_terms_at);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can disable a boolean attribute from an integer(): void
     {
         $model = new TestModel;
@@ -234,9 +207,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertNull($model->accepted_terms_at);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it can disable a boolean attribute from an empty string(): void
     {
         $model = new TestModel;
@@ -246,9 +217,7 @@ class BooleanAttributeTest extends TestCase
         $this->assertNull($model->accepted_terms_at);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it returns all attributes(): void
     {
         Carbon::setTestNow('2018-01-01 10:42:06');
