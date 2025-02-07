@@ -2,18 +2,17 @@
 
 [![Latest stable release][version-badge]][link-packagist]
 [![Software license][license-badge]](LICENSE.md)
-[![Build status][travis-badge]][link-travis]
 [![Total downloads][downloads-badge]][link-packagist]
 [![Total stars][stars-badge]][link-github]
 
-[![Read my blog][blog-link-badge]][link-blog]
+[![Visit my website][website-link-badge]][link-website]
 [![View my other packages and projects][packages-link-badge]][link-packages]
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
 **Automatically convert Eloquent model boolean fields to dates (and back to booleans)** so you always know _when_ something was accepted or changed.
 
-Say you've got a registration page for users where they need to accept your terms and perhaps can opt-in to certain features using checkboxes. With the new(-ish) GDPR privacy laws, you're somewhat required to not just keep track of the fact *if* they accepted those (or not), but also *when* they did.
+Say you've got a registration page for users where they need to accept your terms and perhaps can opt-in to certain features using checkboxes. With the GDPR privacy laws, you're somewhat required to not just keep track of the fact *if* they accepted those (or not), but also *when* they did.
 
 ### Example
 
@@ -59,8 +58,8 @@ $user->accepted_terms_at;
 
 ## Requirements
 
-- PHP 8.1 or 8.2
-- Laravel 10
+- PHP 8.3 or 8.4
+- Laravel 11 or 12
 
 ## How to install
 
@@ -279,18 +278,17 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 
 ## About
 
-My name is Sebastiaan and I'm a freelance back-end developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-packages] to kick-start your next project.
+My name is Sebastiaan and I'm a freelance back-end developer specializing in building custom Laravel web apps. Check out my [website][link-website] for more information and my other [packages][link-packages] to kick-start your next project.
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
 [version-badge]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-boolean-dates.svg?label=stable
 [license-badge]: https://img.shields.io/badge/license-MIT-informational.svg
-[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-boolean-dates/master.svg
 [downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-boolean-dates.svg?color=brightgreen
 [stars-badge]: https://img.shields.io/github/stars/sebastiaanluca/laravel-boolean-dates.svg?color=brightgreen
 
-[blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
-[packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
+[website-link-badge]: https://img.shields.io/badge/link-website-lightgrey.svg
+[packages-link-badge]: https://img.shields.io/badge/link-packages-lightgrey.svg
 [twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
 [twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
@@ -300,8 +298,7 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 [link-twitter-share]: https://twitter.com/intent/tweet?text=Easily%20convert%20Eloquent%20model%20booleans%20to%20dates%20and%20back%20with%20Laravel%20Boolean%20Dates.%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-boolean-dates
 [link-contributors]: ../../contributors
 
-[link-portfolio]: https://sebastiaanluca.com
-[link-blog]: https://sebastiaanluca.com/blog
+[link-website]: https://sebastiaanluca.com
 [link-packages]: https://packagist.org/packages/sebastiaanluca
 [link-twitter]: https://twitter.com/sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
