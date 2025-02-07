@@ -4,6 +4,22 @@ All Notable changes to `sebastiaanluca/laravel-boolean-dates` will be documented
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 9.0.0 (2025-02-07)
+
+### Added
+
+- Added support for PHP 8.4
+- Added support for Laravel 12
+
+### Changed
+
+- Require minimum version of Laravel 11.32 to fix deprecation warnings. See https://github.com/laravel/framework/pull/50922.
+
+### Removed
+
+- Dropped support for PHP 8.2
+- Dropped support for Laravel 10
+
 ## 8.0.0 (2024-02-25)
 
 ### Added
@@ -119,19 +135,19 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Run tests against Laravel 5.7
 
-##  1.0.4 (2018-08-26)
+## 1.0.4 (2018-08-26)
 
 ### Changed
 
 - Updated readme (yes, again 🤓)
 
-##  1.0.3 (2018-08-26)
+## 1.0.3 (2018-08-26)
 
 ### Changed
 
 - Updated readme
 
-##  1.0.2 (2018-08-26)
+## 1.0.2 (2018-08-26)
 
 ### Added
 
@@ -141,13 +157,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Changed Composer description
 
-##  1.0.1 (2018-08-20)
+## 1.0.1 (2018-08-20)
 
 ### Fixed
 
 - Require nesbot/carbon v1.22.1 to fix "Cannot access property xxxx::$lastErrors" (see https://github.com/briannesbitt/Carbon/issues/852)
 
-##  1.0.0 (2018-08-19)
+## 1.0.0 (2018-08-19)
 
 ### Fixed
 
@@ -155,13 +171,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Always return a valid array when retrieving all boolean dates
 - Fixed issue where converting a model to an array didn't include the correct boolean field values
 
-##  0.2.1 (2018-07-26)
+## 0.2.1 (2018-07-26)
 
 ### Fixed
 
 - Remove `self` return type hint (conflicted when returning `null` during an Artisan command)
 
-##  0.2.0 (2018-07-26)
+## 0.2.0 (2018-07-26)
 
 ### Changed
 
@@ -171,13 +187,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Allow multiple traits with the same methods (e.g. `getAttribute`)
 
-##  0.1.1 (2018-07-26)
+## 0.1.1 (2018-07-26)
 
 ### Fixed
 
 - Fixed service provider auto-discovery
 
-##  0.1.0 (2018-07-26)
+## 0.1.0 (2018-07-26)
 
 ### Added
 
