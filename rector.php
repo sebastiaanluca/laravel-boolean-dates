@@ -2,15 +2,9 @@
 
 declare(strict_types=1);
 
-use Rector\CodeQuality\Rector\FuncCall\BoolvalToTypeCastRector;
-use Rector\CodeQuality\Rector\FuncCall\FloatvalToTypeCastRector;
-use Rector\CodeQuality\Rector\FuncCall\IntvalToTypeCastRector;
-use Rector\CodeQuality\Rector\FuncCall\StrvalToTypeCastRector;
 use Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector;
-use Rector\CodingStyle\Rector\FuncCall\ArraySpreadInsteadOfArrayMergeRector;
 use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\Config\RectorConfig;
-use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\If_\ChangeOrIfContinueToMultiContinueRector;
 use Rector\Php74\Rector\Closure\ClosureToArrowFunctionRector;
 use Rector\Php81\Rector\Array_\FirstClassCallableRector;
@@ -41,19 +35,14 @@ return RectorConfig::configure()
         PHPUnitSetList::PHPUNIT_80,
         PHPUnitSetList::PHPUNIT_90,
         PHPUnitSetList::PHPUNIT_100,
+        PHPUnitSetList::PHPUNIT_110,
     ])
     ->withRules([
-        BoolvalToTypeCastRector::class,
-        FloatvalToTypeCastRector::class,
-        IntvalToTypeCastRector::class,
-        StrvalToTypeCastRector::class,
         ReadOnlyClassRector::class,
         ReadOnlyPropertyRector::class,
     ])
     ->withSkip([
-        ArraySpreadInsteadOfArrayMergeRector::class,
         CatchExceptionNameMatchingTypeRector::class,
-        ChangeAndIfToEarlyReturnRector::class,
         ChangeOrIfContinueToMultiContinueRector::class,
         ClosureToArrowFunctionRector::class,
         FirstClassCallableRector::class,
