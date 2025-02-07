@@ -84,6 +84,8 @@
         "test:stable": [
             "composer update --prefer-stable --prefer-dist --no-interaction --ansi",
             "@test"
-        ]
+        ],
+
+        "release": "git-release"
     }
 }
