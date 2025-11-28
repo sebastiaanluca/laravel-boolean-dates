@@ -56,7 +56,8 @@
     "prefer-stable": true,
     "scripts": {
         "post-update-cmd": [
-            "@fix"
+            "@fix",
+            "composer bump"
         ],
 
         "validate:composer": "@composer validate --strict --ansi",
