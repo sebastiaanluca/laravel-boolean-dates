@@ -58,7 +58,7 @@ $user->accepted_terms_at;
 
 ## Requirements
 
-- PHP 8.3 or 8.4
+- PHP 8.4 or 8.5
 - Laravel 11 or 12
 
 ## How to install
