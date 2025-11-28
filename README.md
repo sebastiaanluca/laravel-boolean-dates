@@ -58,7 +58,7 @@ $user->accepted_terms_at;
 
 ## Requirements
 
-- PHP 8.3 or 8.4
+- PHP 8.4 or 8.5
 - Laravel 11 or 12
 
 ## How to install
@@ -294,7 +294,6 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 
 [link-github]: https://github.com/sebastiaanluca/laravel-boolean-dates
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-boolean-dates
-[link-travis]: https://travis-ci.org/sebastiaanluca/laravel-boolean-dates
 [link-twitter-share]: https://twitter.com/intent/tweet?text=Easily%20convert%20Eloquent%20model%20booleans%20to%20dates%20and%20back%20with%20Laravel%20Boolean%20Dates.%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-boolean-dates
 [link-contributors]: ../../contributors
 
