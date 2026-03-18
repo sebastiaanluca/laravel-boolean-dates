@@ -26,8 +26,8 @@
     ],
     "require": {
         "php": "^8.4.0",
-        "illuminate/database": "^11.32|^12.40.2",
-        "illuminate/support": "^11.32|^12.40.2"
+        "illuminate/database": "^12.40.2|^13.0",
+        "illuminate/support": "^12.40.2|^13.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.90.0",
@@ -56,8 +56,7 @@
     "prefer-stable": true,
     "scripts": {
         "post-update-cmd": [
-            "@fix",
-            "composer bump"
+            "@fix"
         ],
 
         "validate:composer": "@composer validate --strict --ansi",
