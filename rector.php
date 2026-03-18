@@ -7,7 +7,6 @@ use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\Config\RectorConfig;
 use Rector\EarlyReturn\Rector\If_\ChangeOrIfContinueToMultiContinueRector;
 use Rector\Php74\Rector\Closure\ClosureToArrowFunctionRector;
-use Rector\Php81\Rector\Array_\FirstClassCallableRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 
 return RectorConfig::configure()
@@ -38,6 +37,5 @@ return RectorConfig::configure()
         CatchExceptionNameMatchingTypeRector::class,
         ChangeOrIfContinueToMultiContinueRector::class,
         ClosureToArrowFunctionRector::class,
-        FirstClassCallableRector::class,
         NewlineAfterStatementRector::class,
     ]);
